@@ -25,7 +25,7 @@ class DateRangePickerServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole() && $assets = $extension->assets()) {
             $this->publishes(
                 [$assets => public_path('vendor/huo-zi/' . DateRangePicker::NAME)],
-                DateRangePicker::NAME
+                'laravel-admin-' . DateRangePicker::NAME
             );
         }
 
