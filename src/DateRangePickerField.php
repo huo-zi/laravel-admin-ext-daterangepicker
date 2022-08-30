@@ -37,13 +37,7 @@ class DateRangePickerField extends Text
      */
     protected function pickerScript()
     {
-        $this->options += DateRangePicker::config('config', []);
-
-        $this->options['locale']['applyLabel'] = Arr::get($this->options, 'locale.applyLabel', __('admin.confirm'));
-        $this->options['locale']['cancelLabel'] = Arr::get($this->options, 'locale.cancelLabel', __('admin.cancel'));
-        $this->options['locale']['format'] = Arr::get($this->options, 'locale.format', 'YYYY-MM-DD');
-
-        $options = json_encode($this->options);
+        $options = $this->buildOptions();
         $locale = config('app.locale');
 
         Admin::script(<<<SCRIPT

@@ -72,11 +72,8 @@ class DateRangePickerFilter extends AbstractFilter
      */
     protected function pickerScript()
     {
-        $this->options['locale']['applyLabel'] = Arr::get($this->options, 'locale.applyLabel', __('admin.confirm'));
-        $this->options['locale']['cancelLabel'] = Arr::get($this->options, 'locale.cancelLabel', __('admin.cancel'));
-
         $locale = config('app.locale');
-        $options = json_encode($this->options);
+        $options = $this->buildOptions();
 
         Admin::script(<<<SCRIPT
         moment.locale('{$locale}');
