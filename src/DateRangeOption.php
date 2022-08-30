@@ -46,7 +46,7 @@ trait DateRangeOption
         }
 
         $options = json_encode($this->options);
-        return $options . $ranges;
+        return substr($options, 0, -1) . $ranges . '}';
     }
 
 }
