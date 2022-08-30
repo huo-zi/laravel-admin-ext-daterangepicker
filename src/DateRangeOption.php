@@ -41,7 +41,7 @@ trait DateRangeOption
         $this->options['locale']['format'] = Arr::get($this->options, 'locale.format', 'YYYY-MM-DD');
 
         if ($ranges = $this->options['ranges'] ?? '') {
-            $ranges = sprintf(',ranges:%s', $ranges);
+            $ranges = sprintf(', "ranges": %s', $ranges);
             unset($this->options['ranges']);
         }
 
