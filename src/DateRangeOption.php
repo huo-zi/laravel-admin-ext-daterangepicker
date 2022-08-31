@@ -29,6 +29,7 @@ trait DateRangeOption
 
     public function ranges($rangesJson)
     {
+        $this->options['alwaysShowCalendars'] = true;
         $this->options['ranges'] = $rangesJson;
     }
 
