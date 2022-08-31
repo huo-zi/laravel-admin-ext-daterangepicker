@@ -44,6 +44,19 @@ $form->daterangepicker('date_field', 'date_label');
 ```php
 $form->daterangepicker(['date_start_field', 'date_end_field'], 'date_label');
 ```
+需要自定义ranges的话：
+```php
+$form->daterangepicker(['date_start_field', 'date_end_field'], 'date_label')->ranges(<<<RANGES
+{
+    'Today': [moment(), moment()],
+    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+    'This Month': [moment().startOf('month'), moment().endOf('month')],
+    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+}
+RANGES);
+```
 
 如果需要自定义日期格式化：
 
